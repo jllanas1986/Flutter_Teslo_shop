@@ -1,7 +1,7 @@
 abstract class KeyValueStorageService {
 
-  Future<void> setKeyValue(String key, dynamic value);
-  Future gestValue(String key, dynamic value);
+  Future<void> setKeyValue<T>(String key, T value);
+  Future<T?> gestValue<T>(String key);
   Future<bool> removeKey(String key);
-  
+
 }
