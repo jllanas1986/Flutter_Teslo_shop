@@ -1,11 +1,13 @@
-
-
-
-import 'package:teslo_shop/features/auth/domain/datasources/auth_datasource.dart';
-import 'package:teslo_shop/features/auth/domain/entities/user.dart';
+import 'package:dio/dio.dart';
+import 'package:teslo_shop/config/constants/environment.dart';
+import 'package:teslo_shop/features/auth/domain/domain.dart';
+import 'package:teslo_shop/features/auth/infrastructure/infrastructure.dart';
 
 class AuthDataSourceImpl extends AuthDataSource {
-  
+  final dio = Dio(BaseOptions(
+    baseUrl: Environment.apiUrl,
+  ));
+
   @override
   Future<User> checkAuthStatus(String token) {
     // TODO: implement checkAuthStatus
@@ -13,9 +15,16 @@ class AuthDataSourceImpl extends AuthDataSource {
   }
 
   @override
-  Future<User> login(String email, String password) {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<User> login(String email, String password) async {
+    try {
+      final response = await dio.post('/auth/login', data: {'email': email, 'password': password});
+
+      final user = UserMapper.userJsonToEntity(response.data);
+      return user;
+      
+    } catch (e) {
+      throw WrongCredentials();
+    }
   }
 
   @override
@@ -23,5 +32,4 @@ class AuthDataSourceImpl extends AuthDataSource {
     // TODO: implement register
     throw UnimplementedError();
   }
-
 }
