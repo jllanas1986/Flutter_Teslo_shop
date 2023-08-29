@@ -65,8 +65,7 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
     _touchEveryField();
 
     if (!state.isValid) return;
-
-    print(state);
+    
   }
 
   _touchEveryField() {
