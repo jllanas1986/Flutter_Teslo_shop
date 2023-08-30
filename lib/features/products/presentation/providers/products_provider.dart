@@ -1,10 +1,20 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:teslo_shop/features/products/domain/domain.dart';
 
-class ProductNotifier extends StateNotifier<ProductsState> {
+import 'products_repository_provider.dart';
+
+final productProvider =
+    StateNotifierProvider<ProductsNotifier, ProductsState>((ref) {
+      
+  final productsRepository = ref.watch(productsRepositoryProvider);
+
+  return ProductsNotifier(productsRepository: productsRepository);
+});
+
+class ProductsNotifier extends StateNotifier<ProductsState> {
   final ProductsRepository productsRepository;
 
-  ProductNotifier({required this.productsRepository}) : super(ProductsState()) {
+  ProductsNotifier({required this.productsRepository}) : super(ProductsState()) {
     loadNextPage();
   }
 
