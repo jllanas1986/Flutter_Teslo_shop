@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
 import 'package:teslo_shop/features/products/presentation/providers/products_provider.dart';
+import 'package:teslo_shop/features/products/presentation/widgets/widgets.dart';
 import 'package:teslo_shop/features/shared/shared.dart';
 
 class ProductsScreen extends StatelessWidget {
@@ -66,7 +68,7 @@ class _ProductsViewState extends ConsumerState {
         itemCount: productsState.products.length,
         itemBuilder: (context, index) {
           final product = productsState.products[index];
-          return Text(product.title);
+          return ProductCard(product: product);
         },
       ),
     );
