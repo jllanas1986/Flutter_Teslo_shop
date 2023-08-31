@@ -3,8 +3,7 @@ import 'package:teslo_shop/features/products/domain/domain.dart';
 
 import 'products_repository_provider.dart';
 
-final productProvider =
-    StateNotifierProvider<ProductsNotifier, ProductsState>((ref) {
+final productsProvider = StateNotifierProvider<ProductsNotifier, ProductsState>((ref) {
       
   final productsRepository = ref.watch(productsRepositoryProvider);
 

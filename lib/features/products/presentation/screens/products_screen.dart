@@ -49,7 +49,7 @@ class _ProductsViewState extends ConsumerState {
     scrollController.addListener(() {
       if ((scrollController.position.pixels + 400) >=
           scrollController.position.maxScrollExtent) {
-        ref.read(productProvider.notifier).loadNextPage();
+        ref.read(productsProvider.notifier).loadNextPage();
       }
     });
   }
@@ -62,7 +62,7 @@ class _ProductsViewState extends ConsumerState {
 
   @override
   Widget build(BuildContext context) {
-    final productsState = ref.watch(productProvider);
+    final productsState = ref.watch(productsProvider);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
