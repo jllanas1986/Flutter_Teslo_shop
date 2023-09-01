@@ -23,8 +23,11 @@ class ProductsDatasourceImpl extends ProductsDatasource {
 
       productLike.remove('id');
 
-      final response = await dio.request(url,
-          data: productLike, options: Options(method: method));
+      final response = await dio.request(
+        url,
+        data: productLike, 
+        options: Options(
+          method: method));
 
       final product = ProductMapper.jsonToEntity(response.data);
       return product;
