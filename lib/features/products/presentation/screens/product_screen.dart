@@ -74,7 +74,7 @@ class CustomProductField extends StatelessWidget {
     const borderRadius = Radius.circular(15);
 
     return Container(
-      // padding: const EdgeInsets.only(bottom: 0, top: 15),
+      padding: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -189,7 +189,8 @@ class _ProductInformation extends ConsumerWidget {
             label: 'Precio',
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
             initialValue: productForm.price.value.toString(),
-            onChanged: (value) => ref.read(productFormProvider(product).notifier).onPriceChanged(double.tryParse(value) ?? 0 ),
+            onChanged: (value) => ref.read(productFormProvider(product).notifier)
+            .onPriceChanged(double.tryParse(value) ?? -1 ),
             errorMessage: productForm.price.errorMessage,
           ),
           const SizedBox(height: 15),
@@ -207,7 +208,7 @@ class _ProductInformation extends ConsumerWidget {
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
             initialValue: productForm.inStock.value.toString(),
             onChanged: (value) =>
-            ref.read(productFormProvider(product).notifier).onStockChanged( int.tryParse(value) ?? 0),
+            ref.read(productFormProvider(product).notifier).onStockChanged( int.tryParse(value) ?? -1),
             errorMessage: productForm.inStock.errorMessage,
           ),
 
