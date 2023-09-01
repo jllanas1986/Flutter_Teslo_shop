@@ -28,8 +28,7 @@ class Slug extends FormzInput<String, SlugError> {
   SlugError? validator(String value) {
     
     if ( value.isEmpty || value.trim().isEmpty ) return SlugError.empty;
-    if ( value.contains("'") || value.contains(' ') ) return SlugError.empty;
-
+    if ( value.contains("'") || value.contains(' ') ) return SlugError.format;
 
     return null;
   }
