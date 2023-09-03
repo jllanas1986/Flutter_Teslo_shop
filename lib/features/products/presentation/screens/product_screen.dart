@@ -10,6 +10,13 @@ class ProductScreen extends ConsumerWidget {
 
   const ProductScreen({super.key, required this.productId});
 
+  void showSnackbar(BuildContext context) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context)
+      .showSnackBar(const SnackBar(content: Text('Producto Actualizado'))
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final productState = ref.watch(productProvider(productId));
@@ -31,7 +38,11 @@ class ProductScreen extends ConsumerWidget {
 
           ref
               .read(productFormProvider(productState.product!).notifier)
-              .onFormSubmit();
+              .onFormSubmit()
+              .then((value) {
+                if ( !value ) return;
+                showSnackbar(context);
+              });
         },
         child: const Icon(Icons.save_as_outlined),
       ),
@@ -150,11 +161,10 @@ class _ProductView extends ConsumerWidget {
         const SizedBox(height: 10),
         Center(
             child: Text(
-              productForm.title.value, 
-              style: textStyles.titleSmall,
-              textAlign: TextAlign.center,
-              )
-            ),
+          productForm.title.value,
+          style: textStyles.titleSmall,
+          textAlign: TextAlign.center,
+        )),
         const SizedBox(height: 10),
         _ProductInformation(product: product),
       ],

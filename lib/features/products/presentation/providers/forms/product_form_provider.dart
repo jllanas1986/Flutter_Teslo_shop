@@ -17,6 +17,9 @@ final productFormProvider = StateNotifierProvider.autoDispose
   );
 });
 
+
+
+
 class ProductFormNotifier extends StateNotifier<ProductFormState> {
   final Future<bool> Function(Map<String, dynamic> productLike)?
       onSubmitCallback;
