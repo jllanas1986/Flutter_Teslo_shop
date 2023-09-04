@@ -14,28 +14,42 @@ class ProductsDatasourceImpl extends ProductsDatasource {
             baseUrl: Environment.apiUrl,
             headers: {'Authorization': 'Bearer $accessToken'}));
 
+  Future<List<String>> _uploadPhotos(List<String> photos) async {
+    final photosToUpload =
+        photos.where((element) => element.contains('/')).toList();
+    final photosToIgnore =
+        photos.where((element) => !element.contains('/')).toList();
+
+    //todo
+    final List<Future<String>> uploadJob = [];
+    final newImages = await Future.wait(uploadJob);
+
+    return [
+      ...photosToIgnore, ...newImages
+    ];
+  }
+
   @override
   Future<Product> createUpdateProduct(Map<String, dynamic> productLike) async {
     try {
       final String? productId = productLike['id'];
       final String method = (productId == null) ? 'POST' : 'PATCH';
-      final String url = (productId == null) ? '/products' : '/products/$productId';
+      final String url =
+          (productId == null) ? '/products' : '/products/$productId';
 
       productLike.remove('id');
+      productLike['images'] = await _uploadPhotos(productLike['images']);
 
-      final response = await dio.request(
-        url,
-        data: productLike, 
-        options: Options(
-          method: method));
+      throw Exception();
+
+      final response = await dio.request(url,
+          data: productLike, options: Options(method: method));
 
       final product = ProductMapper.jsonToEntity(response.data);
       return product;
-
     } catch (e) {
       throw Exception();
     }
-
   }
 
   @override
