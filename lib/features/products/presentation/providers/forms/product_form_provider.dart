@@ -17,9 +17,6 @@ final productFormProvider = StateNotifierProvider.autoDispose
   );
 });
 
-
-
-
 class ProductFormNotifier extends StateNotifier<ProductFormState> {
   final Future<bool> Function(Map<String, dynamic> productLike)?
       onSubmitCallback;
@@ -76,6 +73,10 @@ class ProductFormNotifier extends StateNotifier<ProductFormState> {
       Price.dirty(state.price.value),
       Stock.dirty(state.inStock.value)
     ]));
+  }
+
+  void updateProductImages(String path) {
+    state = state.copyWith(images: [...state.images, path]);
   }
 
   void onTitleChanged(String value) {
