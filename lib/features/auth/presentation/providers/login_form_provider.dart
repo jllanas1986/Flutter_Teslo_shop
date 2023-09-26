@@ -1,10 +1,12 @@
-//! - State del provider
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
 import 'package:teslo_shop/features/auth/presentation/providers/auth_provider.dart';
 import 'package:teslo_shop/features/shared/shared.dart';
 
+
+
+//! - State del provider
 class LoginFormState {
   final bool isPosting;
   final bool isFormPosted;
@@ -81,11 +83,11 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
 
     await loginUserCallback(state.email.value, state.password.value);
 
-    state = state.copyWith(isPosting: true);
+    // state = state.copyWith(isPosting: true);
 
-    await loginUserCallback(state.email.value, state.password.value);
+    // await loginUserCallback(state.email.value, state.password.value);
 
-    state = state.copyWith(isPosting: false);
+    // state = state.copyWith(isPosting: false);
     
   }
 
