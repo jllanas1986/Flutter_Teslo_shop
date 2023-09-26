@@ -42,7 +42,10 @@ En este proyecto se trabaja con:
 
 
 
-[cerrar sesión](https://github.com/jllanas1986/Flutter_Teslo_shop/assets/122029674/a40e7023-94ef-4dc3-b2ad-8416efe22bc2)
+
+[cerrar sesión](https://github.com/jllanas1986/Flutter_Teslo_shop/assets/122029674/5f7ae41a-55d9-4fbf-961a-2b58b38eb492)
+
+
 
 
 
