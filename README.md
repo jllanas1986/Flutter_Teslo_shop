@@ -16,8 +16,8 @@ En este proyecto se trabaja con:
 
 ![register](./assets/readme_images/register.png)
 ![login](./assets/readme_images/login.png)
+![update](./assets/readme_images/products.png)
 ![products](./assets/readme_images/update.png)
-![update](./assets/readme_images/update.png)
 
 # Implementaciones 🛠️
 
