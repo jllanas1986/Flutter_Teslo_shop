@@ -54,7 +54,7 @@ En este proyecto se trabaja con:
 [Teslo Backend - Nest RestServer](https://github.com/jllanas1986/Flutter-backend-teslo-shop)
 
 # Importante❗
-Recuerdad leer y seguir la guía para montar el backend localmente.
+Recordar leer y seguir la guía para montar el backend localmente.
 
 
 ## Recursos 📚
