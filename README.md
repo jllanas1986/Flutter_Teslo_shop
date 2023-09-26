@@ -29,6 +29,23 @@ En este proyecto se trabaja con:
 # Funcionalidad 🚀
 
 
+[registerlogin](https://github.com/jllanas1986/Flutter_Teslo_shop/assets/122029674/4ae6f04c-7789-4c6b-8fa7-011b2078fa2a)
+
+
+
+[actualizar y cámara](https://github.com/jllanas1986/Flutter_Teslo_shop/assets/122029674/79bd8c57-5fe3-43ea-ab80-cceed48e90ef)
+
+
+
+[crear y galería](https://github.com/jllanas1986/Flutter_Teslo_shop/assets/122029674/cc39d413-1643-4477-b122-b0445fbbe08a)
+
+
+
+
+[cerrar sesión](https://github.com/jllanas1986/Flutter_Teslo_shop/assets/122029674/a40e7023-94ef-4dc3-b2ad-8416efe22bc2)
+
+
+
 ## El backend se puede obtener de aquí 🖥️
 
 [Teslo Backend - Nest RestServer](https://github.com/jllanas1986/Flutter-backend-teslo-shop)
